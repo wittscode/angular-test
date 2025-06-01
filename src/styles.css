@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  --color-primary: #007bff;
+  --color-primary-hover: #0056b3;
+  --color-danger: #dc3545;
+  --color-danger-hover: #a71d2a;
+  --color-secondary: #f1f1f1;
+  --color-secondary-hover: #ddd;
+
+  --text-on-primary: white;
+  --text-on-secondary: #333;
+}

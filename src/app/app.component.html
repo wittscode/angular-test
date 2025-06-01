@@ -1,0 +1,34 @@
+<!-- <div class="top-menu">
+  <img
+    class="logo"
+    src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png"
+  />
+</div> -->
+
+<!-- <h1>{{ courses1.description }}</h1>
+<h1>{{ courses2.description }}</h1> -->
+
+<div class="courses">
+  <course-card
+    [course]="courses1"
+    (courseSelected)="onCourseSelected($event)"
+  ></course-card>
+  <course-card
+    [course]="courses2"
+    (courseSelected)="onCourseSelected($event)"
+  ></course-card>
+  <course-card
+    [course]="courses3"
+    (courseSelected)="onCourseSelected($event)"
+  ></course-card>
+</div>
+
+<!-- 
+<div class="button-container">
+  <ds-button variant="primary">Label</ds-button>
+  <ds-button variant="secondary">Label</ds-button>
+  <ds-button variant="danger">Label</ds-button>
+  <ds-button variant="primary" [disabled]="true">Label</ds-button>
+  <ds-button variant="secondary" [disabled]="true">Label</ds-button>
+  <ds-button variant="danger" [disabled]="true">Label</ds-button>
+</div> -->

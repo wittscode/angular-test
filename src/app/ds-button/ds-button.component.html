@@ -1,0 +1,14 @@
+<button
+  [attr.type]="type"
+  class="ds-button"
+  [class.primary]="variant === 'primary'"
+  [class.secondary]="variant === 'secondary'"
+  [class.danger]="variant === 'danger'"
+  [disabled]="disabled || loading"
+  (click)="handleClick($event)"
+  [attr.aria-busy]="loading"
+  [attr.aria-disabled]="disabled"
+>
+  <span *ngIf="loading" class="spinner" aria-hidden="true"></span>
+  <ng-content></ng-content>
+</button>
