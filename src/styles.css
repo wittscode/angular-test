@@ -20,3 +20,21 @@ body {
   --text-on-primary: white;
   --text-on-secondary: #333;
 }
+
+course-card.is-first {
+  border-top: 2px solid var(--color-primary);
+  padding-top: 40px;
+}
+
+course-card.is-last {
+  border-bottom: 2px solid var(--color-primary);
+  padding-top: 40px;
+}
+
+course-card.is-even {
+  background-color: white;);
+}
+
+course-card.is-odd {
+  background-color: lightgreen;
+}

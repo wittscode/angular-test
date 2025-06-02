@@ -9,7 +9,7 @@ import { Course } from "./model/course";
   standalone: false,
 })
 export class AppComponent {
-  courses = [];
+  courses = COURSES;
 
   onCourseSelected(course: Course) {
     console.log("App Component: bubbled event", course);
