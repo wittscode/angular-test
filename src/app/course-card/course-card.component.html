@@ -1,3 +1,7 @@
+<!-- <ng-container *ngIf="course">
+  <h2>Course Card</h2>
+</ng-container> -->
+
 <div
   class="course-card"
   *ngIf="course"
@@ -31,12 +35,16 @@
     {{ course.longDescription }}
   </div>
 
-  <div class="course-category" [ngSwitch]="course.category">
-    <div class="category" *ngSwitchCase="'BEGINNER'">Beginner</div>
-    <div class="category" *ngSwitchCase="'INTERMEDIATE'">Intermediate</div>
-    <div class="category" *ngSwitchCase="'ADVANCED'">Advanced</div>
-    <div class="category" *ngSwitchDefault>Unknown</div>
-  </div>
+  <ng-container [ngSwitch]="course.category">
+    <div class="course-category">
+      <ng-container *ngSwitchCase="'BEGINNER'">
+        <div class="category">Beginner</div>
+      </ng-container>
+      <div class="category" *ngSwitchCase="'INTERMEDIATE'">Intermediate</div>
+      <div class="category" *ngSwitchCase="'ADVANCED'">Advanced</div>
+      <div class="category" *ngSwitchDefault>Unknown</div>
+    </div>
+  </ng-container>
 
   <!-- {{ course.iconUrl ? "Icon URL is valid" : "Icon URL is invalid" }} -->
 
