@@ -30,4 +30,16 @@ export class CourseCardComponent {
   ngOnInit() {
     console.log("Icon URL:", this.course.iconUrl);
   }
+
+  cardClasses() {
+    if (this.course.category === "BEGINNER") {
+      return "beginner";
+    } else if (this.course.category === "INTERMEDIATE") {
+      return "intermediate";
+    } else if (this.course.category === "ADVANCED") {
+      return "advanced";
+    } else {
+      return "";
+    }
+  }
 }

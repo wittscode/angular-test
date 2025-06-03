@@ -1,14 +1,33 @@
-.util-redborder {
-  border: 2px solid red; /* Red border for courses with 'util-redborder' class */
-}
-/* 
 .course-card {
   padding: 20px;
+  margin: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-} */
+  text-align: left;
+}
+.course-card img {
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.course-card button {
+  margin-top: 20px;
+  height: 40px;
+  font-size: 20px;
+  background: #1a7ce7;
+  color: white;
+  border-radius: 4px;
+}
+
+.util-border {
+  border: 2px solid rgb(229, 229, 229);
+}
 
 .course-card.beginner {
-  background-color: orange; /* Light cyan for beginner courses */
+  background-color: lightgreen;
+}
+.course-card.intermediate {
+  background-color: orange;
+}
+.course-card.advanced {
+  background-color: lightcoral;
 }
