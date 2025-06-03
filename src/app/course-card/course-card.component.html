@@ -1,10 +1,33 @@
-<div class="course-card">
+<div
+  class=""
+  *ngIf="course"
+  [ngClass]="{ 'course-card': true, beginner: true, 'util-redborder': true }"
+>
   <div class="course-title">{{ cardIndex }} {{ course.description }}</div>
-  <img width="300" alt="Angular Logo" [src]="course.iconUrl" />
+
+  <!-- <ng-container *ngIf="isImageVisible()"> -->
+  <img
+    width="300"
+    alt="Angular Logo"
+    [src]="course.iconUrl"
+    *ngIf="isImageVisible(); else noImage"
+  />
+
+  <ng-template #noImage>
+    <img
+      width="300"
+      alt="No Image Availablesss"
+      src="https://placehold.co/300x200"
+    />
+  </ng-template>
+
+  <!-- </ng-container> -->
 
   <div class="course-description">
     {{ course.longDescription }}
   </div>
+
+  <!-- {{ course.iconUrl ? "Icon URL is valid" : "Icon URL is invalid" }} -->
 
   <button (click)="onCourseViewed()">View Course</button>
 </div>
