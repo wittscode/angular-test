@@ -42,4 +42,19 @@ export class CourseCardComponent {
       return "";
     }
   }
+
+  cardStyles() {
+    return {
+      "text-decoration": "underline",
+      color: "blue",
+    };
+  }
+
+  cardBackgroundStyles() {
+    return {
+      backgroundImage: `url(${this.course.iconUrl})`,
+      "background-size": "cover",
+      "background-position": "center",
+    };
+  }
 }
