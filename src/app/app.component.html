@@ -2,6 +2,8 @@
   <h1>Course List</h1>
 </div>
 
+<button (click)="onEditCourse()">Add Course</button>
+
 <!-- Insert Normally -->
 <!-- <course-card [course]="courses[3]"></course-card> -->
 
@@ -38,10 +40,10 @@
   >
   </course-card> -->
 
-  <!-- <ng-container *ngFor="let course of courses">
+  <ng-container *ngFor="let course of courses">
     <course-card
       [course]="course"
       (courseSelected)="onCourseSelected($event)"
     ></course-card>
-  </ng-container> -->
+  </ng-container>
 </div>

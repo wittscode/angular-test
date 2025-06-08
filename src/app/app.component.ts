@@ -1,4 +1,10 @@
-import { Component, ElementRef, ViewChild } from "@angular/core";
+import {
+  Component,
+  ElementRef,
+  QueryList,
+  ViewChild,
+  ViewChildren,
+} from "@angular/core";
 import { COURSES } from "../db-data";
 import { Course } from "./model/course";
 import { CourseCardComponent } from "./course-card/course-card.component";
@@ -22,13 +28,17 @@ export class AppComponent implements AfterViewInit {
   @ViewChild("courseImage", { read: ElementRef })
   courseImage?: ElementRef;
 
-  onCourseSelected(course: Course) {
+  @ViewChildren(CourseCardComponent, { read: ElementRef })
+  // cards!: import("@angular/core").QueryList<CourseCardComponent>;
+  cards!: QueryList<ElementRef>;
+
+  onCourseSelected(_course: Course) {
     // console.log("App Component: bubbled event", course);
-    // console.log(this.card);
+    console.log(this.card);
     // console.log("Container Element:", this.containerDiv);
   }
 
-  trackCourse(index: number, course: Course) {
+  trackCourse(_index: number, course: Course) {
     return course.id;
   }
 
@@ -46,11 +56,30 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.log("Course card:", this.card);
-    console.log("Card Element:", this.card?.nativeElement);
-    console.log("containerDiv:", this.containerDiv);
-    console.log("courseImage", this.courseImage);
+    // console.log("Course card:", this.card);
+    // console.log("Card Element:", this.card?.nativeElement);
+    // console.log("containerDiv:", this.containerDiv);
+    // console.log("courseImage", this.courseImage);
+    // this.courses[0].description = "test";
 
-    this.courses[0].description = "test";
+    this.cards.changes.subscribe((cards) =>
+      console.log("Cards QueryList changed:", cards)
+    );
+
+    console.log("Cards QueryList:", this.cards);
+
+    // console.log(this.cards);
+  }
+
+  onEditCourse() {
+    this.courses.push({
+      id: 11,
+      description: "Angular 2 Material Course",
+      iconUrl:
+        "https://s3-us-west-1.amazonaws.com/angular-university/course-images/material_design.png",
+      longDescription:
+        "Build Applications with the official Angular Widget Library",
+      category: "ADVANCED",
+    });
   }
 }
