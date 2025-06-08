@@ -1,6 +1,7 @@
-import { Component } from "@angular/core";
+import { Component, ElementRef, ViewChild } from "@angular/core";
 import { COURSES } from "../db-data";
 import { Course } from "./model/course";
+import { CourseCardComponent } from "./course-card/course-card.component";
 
 @Component({
   selector: "app-root",
@@ -10,11 +11,17 @@ import { Course } from "./model/course";
 })
 export class AppComponent {
   courses = COURSES;
+  // alsoCourses = COURSES[7]; // Display first 3 courses in the alsoCourses section
 
-  alsoCourses = COURSES[7]; // Display first 3 courses in the alsoCourses section
+  @ViewChild("cardRef1", { read: ElementRef }) card?: ElementRef;
+
+  @ViewChild("containerRef")
+  containerDiv: ElementRef;
 
   onCourseSelected(course: Course) {
     console.log("App Component: bubbled event", course);
+    console.log(this.card);
+    console.log("Container Element:", this.containerDiv);
   }
 
   trackCourse(index: number, course: Course) {
@@ -27,6 +34,10 @@ export class AppComponent {
   // price = 99.99; // Example price
 
   ngOnInit() {
-    console.log("First course description:", this.title);
+    // console.log("First course description:", this.title);
+  }
+
+  ngAfterViewInit() {
+    console.log("Course card:", this.card);
   }
 }

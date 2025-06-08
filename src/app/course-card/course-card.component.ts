@@ -11,7 +11,7 @@ import { CommonModule } from "@angular/common";
 export class CourseCardComponent {
   @Input({ required: true }) course: Course;
 
-  @Input({ required: true })
+  @Input({ required: false })
   cardIndex: number;
 
   @Output("courseSelected")
@@ -52,7 +52,7 @@ export class CourseCardComponent {
 
   cardBackgroundStyles() {
     return {
-      backgroundImage: `url(${this.course.iconUrl})`,
+      // backgroundImage: `url(${this.course.iconUrl})`,
       "background-size": "cover",
       "background-position": "center",
     };

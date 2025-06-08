@@ -1,5 +1,5 @@
 export const COURSES: any = [
-  undefined,
+  // undefined,
 
   {
     id: 1,
