@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
 import { COURSES } from "../db-data";
 import { Course } from "./model/course";
 import { CourseCardComponent } from "./course-card/course-card.component";
+import { AfterViewInit } from "@angular/core";
 
 @Component({
   selector: "app-root",
@@ -9,7 +10,7 @@ import { CourseCardComponent } from "./course-card/course-card.component";
   styleUrls: ["./app.component.css"],
   standalone: false,
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   courses = COURSES;
   // alsoCourses = COURSES[7]; // Display first 3 courses in the alsoCourses section
 
@@ -18,10 +19,13 @@ export class AppComponent {
   @ViewChild("containerRef")
   containerDiv: ElementRef;
 
+  @ViewChild("courseImage", { read: ElementRef })
+  courseImage?: ElementRef;
+
   onCourseSelected(course: Course) {
-    console.log("App Component: bubbled event", course);
-    console.log(this.card);
-    console.log("Container Element:", this.containerDiv);
+    // console.log("App Component: bubbled event", course);
+    // console.log(this.card);
+    // console.log("Container Element:", this.containerDiv);
   }
 
   trackCourse(index: number, course: Course) {
@@ -37,7 +41,16 @@ export class AppComponent {
     // console.log("First course description:", this.title);
   }
 
+  constructor() {
+    // console.log("containerDiv:", this.containerDiv);
+  }
+
   ngAfterViewInit() {
     console.log("Course card:", this.card);
+    console.log("Card Element:", this.card?.nativeElement);
+    console.log("containerDiv:", this.containerDiv);
+    console.log("courseImage", this.courseImage);
+
+    this.courses[0].description = "test";
   }
 }

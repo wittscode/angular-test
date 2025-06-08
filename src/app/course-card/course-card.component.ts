@@ -28,7 +28,7 @@ export class CourseCardComponent {
   }
 
   ngOnInit() {
-    console.log("Icon URL:", this.course.iconUrl);
+    // console.log("Icon URL:", this.course.iconUrl);
   }
 
   cardClasses() {
